@@ -1,0 +1,31 @@
+world:
+  height: 15  # Larger world for 14 robots
+  width: 15  # Larger world for 14 robots
+  step_time: 0.3
+  sample_time: 0.3
+  collision_mode: 'reactive'
+
+robot:
+  - number: 14  # 14 robots for more complex coordination
+    kinematics: {name: 'diff'}
+    distribution: {name: 'circle', radius: 6, center: [9, 9]}  # Larger spawn radius
+    shape: {name: 'circle', radius: 0.2}
+    vel_min: [ 0, -1.0 ]
+    vel_max: [ 0.5, 1.0 ]
+    state: [2, 2, 0, 0]
+    goal: [16, 16, 0]
+    color: ['royalblue', 'red', 'green', 'orange', 'purple', 'yellow', 'cyan', 'magenta', 'lime', 'pink', 'brown', 'black', 'bisque', 'slategrey', 'lavender', 'hotpink', 'navy', 'gold', 'olive', 'peru']
+    arrive_mode: position
+    goal_threshold: 0.3
+
+    plot:
+      show_trajectory: false
+
+# Static obstacles - 7 obstacles in larger world
+obstacle:
+  # Static circle obstacles
+  - number: 7
+    shape: {name: 'circle', radius: 0.7}
+    distribution: {name: 'random', range_low: [2, 2, -3.14], range_high: [16, 16, 3.14]}
+    kinematics: {name: 'static'}
+    color: 'saddlebrown'

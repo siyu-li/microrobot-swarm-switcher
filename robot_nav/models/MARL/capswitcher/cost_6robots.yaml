@@ -1,0 +1,17 @@
+# CAPSwitcher cost config — 6-robot system.
+#
+# precise_unit: cost of ONE robot driven for ONE precise sub-step.
+#   A full precise decision (all robots unreached, selection_interval = 5)
+#   costs precise_unit x 5 x 6 = 351.0.  Robots already at goal are skipped
+#   and not charged.
+#
+# coarse: one entry per selectable move-group (ids are 1-based here, matching
+#   the 6-robot CoarseSteering).  `members` lists the robots that translate
+#   when the group is chosen — informational for editing, and validated
+#   against the live group algebra at load time.  `cost: auto` means
+#   len(members) x move_distance.
+precise_unit: 11.7
+coarse:
+  - {id: 1, members: [3, 4, 5], move_distance: 1.5, cost: 4.5}
+  - {id: 2, members: [1, 2, 5], move_distance: 1.5, cost: 4.5}
+  - {id: 3, members: [0, 2, 4], move_distance: 1.5, cost: 4.5}

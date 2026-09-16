@@ -1,0 +1,39 @@
+# CAPSwitcher cost config — 14-robot system.
+#
+# precise_unit: cost of ONE robot driven for ONE precise sub-step.
+#   A full precise decision (all 14 robots unreached, selection_interval = 5)
+#   costs precise_unit x 5 x 14 = 4309.9.  Robots already at goal are skipped
+#   and not charged.
+#
+# coarse: one entry per move-group, id = coarse action id (0-based list
+#   position — same order as MOVE_GROUPS / the search / the logged shards).
+#   `members` lists the robots that translate when the group is chosen —
+#   informational for editing, and validated against the live group algebra
+#   at load time.  `cost: auto` means len(members) x move_distance.
+precise_unit: 11.57
+coarse:
+  # ---- size 3 -------------------------------------------------------------
+  - {id: 0,  members: [2, 6, 10],                   move_distance: 1.0, cost: 52.7}
+  - {id: 1,  members: [4, 6, 12],                   move_distance: 1.0, cost: 52.7}
+  - {id: 2,  members: [5, 6, 13],                   move_distance: 1.0, cost: 52.7}
+  - {id: 3,  members: [8, 10, 12],                  move_distance: 1.0, cost: 52.7}
+  - {id: 4,  members: [9, 10, 13],                  move_distance: 1.0, cost: 52.7}
+  - {id: 5,  members: [11, 12, 13],                 move_distance: 1.0, cost: 52.7}
+  # ---- size 4 -------------------------------------------------------------
+  - {id: 6,  members: [0, 2, 4, 6],                 move_distance: 1.0, cost: 52.7}
+  - {id: 7,  members: [0, 2, 8, 10],                move_distance: 1.0, cost: 52.7}
+  - {id: 8,  members: [0, 4, 8, 12],                move_distance: 1.0, cost: 52.7}
+  - {id: 9,  members: [1, 2, 5, 6],                 move_distance: 1.0, cost: 52.7}
+  - {id: 10, members: [1, 2, 9, 10],                move_distance: 1.0, cost: 52.7}
+  - {id: 11, members: [1, 5, 9, 13],                move_distance: 1.0, cost: 52.7}
+  - {id: 12, members: [3, 4, 5, 6],                 move_distance: 1.0, cost: 52.7}
+  - {id: 13, members: [3, 4, 11, 12],               move_distance: 1.0, cost: 52.7}
+  - {id: 14, members: [3, 5, 11, 13],               move_distance: 1.0, cost: 52.7}
+  - {id: 15, members: [7, 8, 9, 10],                move_distance: 1.0, cost: 52.7}
+  - {id: 16, members: [7, 8, 11, 12],               move_distance: 1.0, cost: 52.7}
+  - {id: 17, members: [7, 9, 11, 13],               move_distance: 1.0, cost: 52.7}
+  # ---- size 7 -------------------------------------------------------------
+  - {id: 18, members: [0, 2, 4, 6, 8, 10, 12],      move_distance: 1.0, cost: 8.8}
+  - {id: 19, members: [1, 2, 5, 6, 9, 10, 13],      move_distance: 1.0, cost: 8.8}
+  - {id: 20, members: [3, 4, 5, 6, 11, 12, 13],     move_distance: 1.0, cost: 8.8}
+  - {id: 21, members: [7, 8, 9, 10, 11, 12, 13],    move_distance: 1.0, cost: 8.8}
